@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+import qrcode as qr
 
-# Create your views here.
+
+
+
+def index(request):
+    return render(request, 'GeneratorPro/index.html')
+
+
+
