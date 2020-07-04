@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'GeneratorPro',
     'crispy_forms',
+    'qr_code',
 ]
 
 MIDDLEWARE = [

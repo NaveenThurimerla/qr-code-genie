@@ -1,22 +1,22 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-import qrcode as qr
 from .forms import TextForm
-
+import qrcode
 
 def index(request):
-    # if this is a POST request we need to process the form data
+    
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = TextForm(request.POST)
-
-        # check whether it's valid:
         if form.is_valid():
-            qr_text = qr.make("testing")
-            return HttpResponseRedirect(qr_text.show() )
+            qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_L,box_size=10,border=4,)
+            qr.add_data(form.cleaned_data['your_text'])
+            qr.make(fit=True)
+            img = qr.make_image(fill_color="black", back_color="white")
+            img.save("your_text.png")
+            image_data = open("your_text.png", "rb").read()
+            return HttpResponse(image_data, content_type="image/png")
 
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = TextForm()
-    
-    return render(request, 'GeneratorPro/index.html', {'form': form})
+
+    return render(request, "GeneratorPro/index.html", context= {'form': form})
