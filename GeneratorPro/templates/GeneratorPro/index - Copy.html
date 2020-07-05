@@ -48,24 +48,23 @@
     <div class="jumbotron">
       <div class="container">
         <p>
-          <a class="btn btn-primary" data-toggle="collapse" href="#plain_text" role="button" aria-expanded="true"
+          <a class="btn btn-primary" data-toggle="collapse" href="#plain_text" role="button" aria-expanded="false"
             aria-controls="plain_text">
             TEXT
           </a>
 
-          <a class="btn btn-primary" data-toggle="collapse" href="#wifi_config" role="button" aria-expanded="true"
+          <a class="btn btn-primary" data-toggle="collapse" href="#wifi_config" role="button" aria-expanded="false"
             aria-controls="wifi_config">
             WIFI
           </a>
-
 
         </p>
         <div class="collapse" id="plain_text">
           <div class="card card-body">
 
-            <form method="post" novalidate>
+            <form action="get_plain_text_qrcode" method="post" novalidate>
               {% csrf_token %}
-              {{ plain_text_form }}
+              {{ form }}
               <button type="submit" class="btn btn-success">Submit</button>
             </form>
 
@@ -75,16 +74,16 @@
         <div class="collapse" id="wifi_config">
           <div class="card card-body">
 
-            <form method="post" novalidate>
+            <form action="get_wifi_config_qrcode" method="post" novalidate>
               {% csrf_token %}
-              {{ wifi_config_form }}
+              {{ form }}
               <button type="submit" class="btn btn-success">Submit</button>
             </form>
 
           </div>
         </div>
 
-        
+
       </div>
     </div>
 
