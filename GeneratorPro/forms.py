@@ -1,4 +1,4 @@
 from django import  forms
 
-class TextForm(forms.Form):
-    your_text = forms.CharField(label='Your text', max_length=100)
+class PlainTextForm(forms.Form):
+    user_plain_text = forms.CharField(label='Enter text', max_length=100)
