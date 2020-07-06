@@ -45,8 +45,8 @@ def get_plain_text_qrcode(request, *args, **kwargs):
             image = segno.make(
                 plain_text_form.cleaned_data['user_plain_text'],  micro=False, error="h")
             buffer = BytesIO()
-            image.save(buffer, "PNG",  scale=20, dark='black',
-                       light='white', border=10)
+            image.save(buffer, "PNG",  scale=7, dark='black',
+                       light='white')
             img_str = base64.b64encode(buffer.getvalue())
             return str(img_str.decode("utf-8"))
 
@@ -58,8 +58,8 @@ def get_url_qrcode(request, *args, **kwargs):
             image = segno.make(
                 url_form.cleaned_data['user_url'],  micro=False, error="h")
             buffer = BytesIO()
-            image.save(buffer, "PNG",  scale=20, dark='black',
-                       light='white', border=10)
+            image.save(buffer, "PNG",  scale=7, dark='black',
+                       light='white')
             img_str = base64.b64encode(buffer.getvalue())
             return str(img_str.decode("utf-8"))
 
@@ -72,7 +72,7 @@ def get_wifi_config_qrcode(request, *args, **kwargs):
                 ssid=wifi_config_form.cleaned_data['wifi_config_ssid'], password=wifi_config_form.cleaned_data['wifi_configsecurity'], security=wifi_config_form.cleaned_data['wifi_configsecurity'])
             image = segno.make(config,  micro=False, error="h")
             buffer = BytesIO()
-            image.save(buffer, "PNG",  scale=20, dark='black',
-                       light='white', border=10)
+            image.save(buffer, "PNG",  scale=7, dark='black',
+                       light='white')
             img_str = base64.b64encode(buffer.getvalue())
             return str(img_str.decode("utf-8"))

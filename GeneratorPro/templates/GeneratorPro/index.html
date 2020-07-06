@@ -16,6 +16,14 @@
   <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
   <script src="{% static 'vendor\jQuery\jquery-3.5.1.min.js' %}"></script>
 
+  <script type="text/javascript">
+    function getQRURL(linkElement) {
+        var qrImageDiv = document.getElementById('download_QR_Image');
+        var downloadQRImage = qrImageDiv.children[0];
+        linkElement.href = downloadQRImage.src;
+    }
+    </script>
+
 </head>
 
 <body>
@@ -103,13 +111,17 @@
 
       <div class="container">
 
-        <div class="text-center img-thumbnail img-fluid">
+        <div class="text-center img-thumbnail img-fluid " id="download_QR_Image">
           {% if qr_image %}
-          <img src="data:image/png;base64,{{ qr_image }}" class="rounded" height="260" width="260" alt="...">
+          <img src="data:image/png;base64,{{ qr_image }}" class="rounded" height="203" width="203" alt="...">
+          <p>
+            <a class="btn btn-success" href="#" onclick="getQRURL(this)" download>DOWNLOAD</a>
+          </p>
           {% else %}
-          <img src="{{ default_qr_image }}" class="rounded" height="260" width="260" alt="...">
+          <img src="{{ default_qr_image }}" class="rounded" height="203" width="203" alt="...">
           {% endif %}
         </div>
+        
 
       </div>
 
