@@ -18,11 +18,11 @@
 
   <script type="text/javascript">
     function getQRURL(linkElement) {
-        var qrImageDiv = document.getElementById('download_QR_Image');
-        var downloadQRImage = qrImageDiv.children[0];
-        linkElement.href = downloadQRImage.src;
+      var qrImageDiv = document.getElementById('download_QR_Image');
+      var downloadQRImage = qrImageDiv.children[0];
+      linkElement.href = downloadQRImage.src;
     }
-    </script>
+  </script>
 
 </head>
 
@@ -58,18 +58,21 @@
 
         <div id="mainDataToggleGroup">
           <p>
-            <button style="margin:30px;" class="btn dropdown btn-primary btn-lg active " data-toggle="collapse" data-target="#plain_text"><i
-                class="fa fa-font" aria-hidden="true"></i> TEXT </button>
-            <button style="margin:30px;" class="btn dropdown btn-primary btn-lg active" data-toggle="collapse" data-target="#wifi_config"><i
+
+            <button class="btn dropdown btn-primary btn-block" data-toggle="collapse" data-target="#plain_text"><i
+                class="fa fa-font" aria-hidden="true"></i> TEXT</button>
+            <button class="btn dropdown btn-primary btn-block" data-toggle="collapse" data-target="#wifi_config"><i
                 class="fa fa-wifi" aria-hidden="true"></i> WIFI </button>
-            <button style="margin:30px;" class="btn dropdown btn-primary btn-lg active" data-toggle="collapse" data-target="#url_form"><i
+            <button class="btn dropdown btn-primary btn-block" data-toggle="collapse" data-target="#url_form"><i
                 class="fa fa-globe" aria-hidden="true"></i> URL </button>
-            <button style="margin:30px;" class="btn dropdown btn-primary btn-lg active" data-toggle="collapse" data-target="#memcard_form"><i
-                  class="fa fa-address-card" aria-hidden="true"></i> MEMCard </button>    
-            <button style="margin:30px;" class="btn dropdown btn-primary btn-lg active" data-toggle="collapse" data-target="#vcard_form"><i
-                    class="fa fa-mobile" aria-hidden="true"></i> vCard </button>          
-            <button style="margin:27px;" class="btn dropdown btn-primary btn-lg active" data-toggle="collapse" data-target="#lat_lang_form"><i
-                      class="fa fa-map" aria-hidden="true"></i> Geo Tag </button>                  
+          
+            <button class="btn dropdown btn-primary btn-block" data-toggle="collapse" data-target="#memcard_form"><i
+                class="fa fa-address-card" aria-hidden="true"></i> MEMCard
+            </button>
+            <button class="btn dropdown btn-primary btn-block" data-toggle="collapse" data-target="#vcard_form"><i
+                class="fa fa-mobile" aria-hidden="true"></i> vCard </button>
+            <button class="btn dropdown btn-primary btn-block" data-toggle="collapse" data-target="#lat_lang_form"><i
+                class="fa fa-map" aria-hidden="true"></i> Geo Tag </button>
           </p>
 
           <div class="accordion-group">
@@ -164,7 +167,7 @@
           <img src="{{ default_qr_image }}" class="rounded" height="203" width="203" alt="...">
           {% endif %}
         </div>
-        
+
 
       </div>
 
