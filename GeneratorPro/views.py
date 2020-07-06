@@ -93,6 +93,8 @@ def get_wifi_config_qrcode(request, *args, **kwargs):
             img_str = base64.b64encode(buffer.getvalue())
             return str(img_str.decode("utf-8"))
 
+
+
 def get_memcard_qrcode(request, *args, **kwargs):
     if request.method == 'POST':
         memcard_form = MEMCardForm(request.POST)
@@ -102,28 +104,6 @@ def get_memcard_qrcode(request, *args, **kwargs):
                 ,phone = memcard_form.cleaned_data['memcard_phone']
                 ,email = memcard_form.cleaned_data['memcard_email']
                 ,url = memcard_form.cleaned_data['memcard_url']
-                ,city = memcard_form.cleaned_data['memcard_city']
-                ,country = memcard_form.cleaned_data['memcard_country']
-                )
-            image = segno.make(config,  micro=False, error="h")
-            buffer = BytesIO()
-            image.save(buffer, "PNG",  scale=7, dark='black',
-                       light='white')
-            img_str = base64.b64encode(buffer.getvalue())
-            return str(img_str.decode("utf-8"))
-
-
-def get_memcard_qrcode(request, *args, **kwargs):
-    if request.method == 'POST':
-        memcard_form = MEMCardForm(request.POST)
-        if memcard_form.is_valid():
-            config = helpers.make_vcard_data(
-                name = memcard_form.cleaned_data['memcard_name']
-                ,phone = memcard_form.cleaned_data['memcard_phone']
-                ,email = memcard_form.cleaned_data['memcard_email']
-                ,url = memcard_form.cleaned_data['memcard_url']
-                ,city = memcard_form.cleaned_data['memcard_city']
-                ,country = memcard_form.cleaned_data['memcard_country']
                 )
             image = segno.make(config,  micro=False, error="h")
             buffer = BytesIO()
