@@ -25,7 +25,7 @@ SECRET_KEY = '16=(!5l7*x5bn9r22dth+9zrxby_^d0a@1o!l5$@@2a&njx%62'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','qr-mafia.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','qrcodemafia.herokuapp.com']
 
 
 # Application definition
